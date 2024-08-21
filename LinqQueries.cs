@@ -34,4 +34,10 @@ public class LinqQueries {
         return booksCollection.Where(book => book.Categories != null && book.Categories!.Contains(category));
     }
     
+    public IEnumerable<Book> GetBooksByCategoryASCOrder(string category) {
+        return booksCollection.Where(book => book.Categories != null && book.Categories!.Contains(category)).OrderBy(b => b.Title);
+    }
+    public IEnumerable<Book> GetBooksByPagesDescOrder(int pages) {
+        return booksCollection.Where(b => b.PageCount > pages).OrderByDescending(b => b.PageCount);
+    }
 }
