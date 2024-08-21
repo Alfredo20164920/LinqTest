@@ -40,4 +40,21 @@ public class LinqQueries {
     public IEnumerable<Book> GetBooksByPagesDescOrder(int pages) {
         return booksCollection.Where(b => b.PageCount > pages).OrderByDescending(b => b.PageCount);
     }
+
+    public IEnumerable<Book> GetThreeRecentBooksByCategory(string category) {
+        return booksCollection
+            .Where(b => b.Categories!.Contains(category))
+            .OrderByDescending(b => b.PublishedDate)
+            .Take(3);
+    }   
+
+    public IEnumerable<Book> Get3And4BookByPage(int pages) {
+        return booksCollection
+        .Where(b => b.PageCount > pages)
+        .OrderByDescending(b => b.PageCount)
+        .Take(4)
+        .Skip(2);
+    }
+
+
 }

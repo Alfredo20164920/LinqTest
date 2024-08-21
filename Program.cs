@@ -8,7 +8,9 @@
 // Console.WriteLine(queries.SomeBookPublisInAYear(2005));
 // printValues(queries.GetBooksByCategory("Python"));
 // printValues(queries.GetBooksByCategoryASCOrder("Java"));
-printValues(queries.GetBooksByPagesDescOrder(450));
+// printValues(queries.GetBooksByPagesDescOrder(450));
+// printValues(queries.GetThreeRecentBooksByCategory("Java"));
+printValues(queries.Get3And4BookByPage(400));
 
 void printValues (IEnumerable<Book> BookList) {
         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
