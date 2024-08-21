@@ -56,5 +56,9 @@ public class LinqQueries {
         .Skip(2);
     }
 
+    public IEnumerable<ItemBook> SelectColumns() {
+        return booksCollection.Take(3).Select(b => new ItemBook() {Title = b.Title, PageCount = b.PageCount});
+    }
+
 
 }
