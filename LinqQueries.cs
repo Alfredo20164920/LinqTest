@@ -21,4 +21,14 @@ public class LinqQueries {
     public IEnumerable<Book> GetBooksByPageAndTitle (int pages, string title) {
         return booksCollection.Where((book) =>  book.Title!.Contains(title) && book.PageCount > pages);
     }
+
+    public bool AllFieldsHaveStatus() {
+        return booksCollection.All(book => book.Status != string.Empty);
+    }
+
+    public bool SomeBookPublisInAYear(int year) {
+        return booksCollection.Any(book => book.PublishedDate.Year == year);
+    }
+
+    
 }

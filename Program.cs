@@ -3,8 +3,9 @@
     LinqQueries queries = new LinqQueries();
 // printValues(queries.AllCollection());
 // printValues(queries.GetBooksAfter2000());
-printValues(queries.GetBooksByPageAndTitle(250, "in Action"));
-
+// printValues(queries.AllFieldsHaveStatus());
+// Console.WriteLine(queries.AllFieldsHaveStatus());
+Console.WriteLine(queries.SomeBookPublisInAYear(2005));
 
 void printValues (IEnumerable<Book> BookList) {
         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
