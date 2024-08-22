@@ -18,7 +18,9 @@
 // printValue(queries.GetBookWithPagesGraterThan(0)!);
 // printValue(queries.GetLastPublishedBookWithMaxBy()!);
 // System.Console.WriteLine(queries.TotalPagesWithRange(0, 500));
-System.Console.WriteLine(queries.GetTitleOfBooksBeforeADate(2005));
+// System.Console.WriteLine(queries.GetTitleOfBooksBeforeADate(2005));
+// System.Console.WriteLine(queries.GetAvarageTitleCharacters());
+System.Console.WriteLine(queries.GetAvaragePages());
 
 // void printValues (IEnumerable<Book> BookList) {
 //         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");

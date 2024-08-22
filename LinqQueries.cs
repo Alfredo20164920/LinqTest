@@ -93,4 +93,12 @@ public class LinqQueries {
                 return bookTitle;
             } );
     }
+
+    public double GetAvarageTitleCharacters() {
+        return booksCollection.Average(b => b.Title!.Length);
+    }
+
+    public double GetAvaragePages() {
+        return booksCollection.Where(b => b.PageCount > 0).Average(b => b.PageCount);
+    }
 }
