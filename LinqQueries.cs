@@ -60,5 +60,7 @@ public class LinqQueries {
         return booksCollection.Take(3).Select(b => new ItemBook() {Title = b.Title, PageCount = b.PageCount});
     }
 
-
+    public int CountBooksByPages(int min, int max) {
+        return booksCollection.Where(b => b.PageCount > min && b.PageCount < max).Count();
+    }
 }
