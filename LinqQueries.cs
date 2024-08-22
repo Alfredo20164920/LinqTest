@@ -79,4 +79,18 @@ public class LinqQueries {
     public Book? GetLastPublishedBookWithMaxBy() {
         return booksCollection.MaxBy(b => b.PublishedDate);
     }
+
+    public int TotalPagesWithRange(int min, int max) {
+        return booksCollection.Where(b => b.PageCount > min && b.PageCount < max).Sum(b => b.PageCount);
+    }
+
+    public string GetTitleOfBooksBeforeADate(int year) {
+        return booksCollection.Where(b => b.PublishedDate.Year > year)
+            .Aggregate("", (bookTitle, next) => {
+                if(bookTitle != string.Empty) bookTitle += " - " + next.Title;
+                else bookTitle += next.Title;
+
+                return bookTitle;
+            } );
+    }
 }

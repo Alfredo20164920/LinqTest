@@ -16,7 +16,9 @@
 // Console.WriteLine(queries.GetLastPublishedBook());
 // Console.WriteLine(queries.GetBookWithMaxNumberOfPages());
 // printValue(queries.GetBookWithPagesGraterThan(0)!);
-printValue(queries.GetLastPublishedBookWithMaxBy()!);
+// printValue(queries.GetLastPublishedBookWithMaxBy()!);
+// System.Console.WriteLine(queries.TotalPagesWithRange(0, 500));
+System.Console.WriteLine(queries.GetTitleOfBooksBeforeADate(2005));
 
 // void printValues (IEnumerable<Book> BookList) {
 //         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
@@ -25,10 +27,10 @@ printValue(queries.GetLastPublishedBookWithMaxBy()!);
 //         }
 //     }
 
-void printValue (Book book) {
-    Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
-    Console.WriteLine(book.ToString());
-}
+// void printValue (Book book) {
+//     Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
+//     Console.WriteLine(book.ToString());
+// }
 
 // void printValues2 (IEnumerable<ItemBook> BookList) {
 //         Console.WriteLine("{0, -60}, {1, 7}\n  ", "Title", "# Pages");
