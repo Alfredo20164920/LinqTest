@@ -12,7 +12,9 @@
 // printValues(queries.GetThreeRecentBooksByCategory("Java"));
 // printValues(queries.Get3And4BookByPage(400));
 // printValues2(queries.SelectColumns());
-System.Console.WriteLine(queries.CountBooksByPages(200, 500));
+// System.Console.WriteLine(queries.CountBooksByPages(200, 500));
+// Console.WriteLine(queries.GetLastPublishedBook());
+Console.WriteLine(queries.GetBookWithMaxNumberOfPages());
 
 // void printValues (IEnumerable<Book> BookList) {
 //         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
