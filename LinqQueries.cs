@@ -60,5 +60,45 @@ public class LinqQueries {
         return booksCollection.Take(3).Select(b => new ItemBook() {Title = b.Title, PageCount = b.PageCount});
     }
 
+    public int CountBooksByPages(int min, int max) {
+        return booksCollection.Where(b => b.PageCount > min && b.PageCount < max).Count();
+    }
 
+    public DateTime GetLastPublishedBook() {
+        return booksCollection.Min(b => b.PublishedDate);
+    }
+
+    public int GetBookWithMaxNumberOfPages() {
+        return booksCollection.Max(b => b.PageCount);
+    }
+
+    public Book? GetBookWithPagesGraterThan(int pages) {
+        return booksCollection.Where(b => b.PageCount > 0).MinBy(b => b.PageCount);
+    }
+
+    public Book? GetLastPublishedBookWithMaxBy() {
+        return booksCollection.MaxBy(b => b.PublishedDate);
+    }
+
+    public int TotalPagesWithRange(int min, int max) {
+        return booksCollection.Where(b => b.PageCount > min && b.PageCount < max).Sum(b => b.PageCount);
+    }
+
+    public string GetTitleOfBooksBeforeADate(int year) {
+        return booksCollection.Where(b => b.PublishedDate.Year > year)
+            .Aggregate("", (bookTitle, next) => {
+                if(bookTitle != string.Empty) bookTitle += " - " + next.Title;
+                else bookTitle += next.Title;
+
+                return bookTitle;
+            } );
+    }
+
+    public double GetAvarageTitleCharacters() {
+        return booksCollection.Average(b => b.Title!.Length);
+    }
+
+    public double GetAvaragePages() {
+        return booksCollection.Where(b => b.PageCount > 0).Average(b => b.PageCount);
+    }
 }
