@@ -71,4 +71,12 @@ public class LinqQueries {
     public int GetBookWithMaxNumberOfPages() {
         return booksCollection.Max(b => b.PageCount);
     }
+
+    public Book? GetBookWithPagesGraterThan(int pages) {
+        return booksCollection.Where(b => b.PageCount > 0).MinBy(b => b.PageCount);
+    }
+
+    public Book? GetLastPublishedBookWithMaxBy() {
+        return booksCollection.MaxBy(b => b.PublishedDate);
+    }
 }
