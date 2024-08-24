@@ -105,4 +105,8 @@ public class LinqQueries {
     public IEnumerable<IGrouping<int, Book>> GroupBooksSinceYear(int year) {
         return booksCollection.Where(b => b.PublishedDate.Year > year).GroupBy(b => b.PublishedDate.Year);
     }
+
+    public ILookup<char, Book> GetDictionary() {
+        return booksCollection.ToLookup(b => b.Title![0], b => b );
+    }
 }

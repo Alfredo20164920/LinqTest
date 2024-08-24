@@ -21,7 +21,8 @@
 // System.Console.WriteLine(queries.GetTitleOfBooksBeforeADate(2005));
 // System.Console.WriteLine(queries.GetAvarageTitleCharacters());
 // System.Console.WriteLine(queries.GetAvaragePages())
-PrinGroup(queries.GroupBooksSinceYear(2000));
+// PrinGroup(queries.GroupBooksSinceYear(2000));
+PrintDictionary(queries.GetDictionary(), 'P');
 
 // void printValues (IEnumerable<Book> BookList) {
 //         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
@@ -30,16 +31,23 @@ PrinGroup(queries.GroupBooksSinceYear(2000));
 //         }
 //     }
 
-void PrinGroup(IEnumerable<IGrouping<int, Book>> books) {
-    foreach(var group in books) {
-        Console.WriteLine("");
-        Console.WriteLine($"Group: {group.Key}");
-        Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
-        foreach(var item in group) {
+void PrintDictionary(ILookup<char, Book> bookList, char letter) {
+    Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
+            foreach(var item in bookList[letter]) {
             Console.WriteLine(item.ToString());
         }
-    }
 }
+
+// void PrinGroup(IEnumerable<IGrouping<int, Book>> books) {
+//     foreach(var group in books) {
+//         Console.WriteLine("");
+//         Console.WriteLine($"Group: {group.Key}");
+//         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
+//         foreach(var item in group) {
+//             Console.WriteLine(item.ToString());
+//         }
+//     }
+// }
 
 // void printValue (Book book) {
 //     Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
