@@ -101,4 +101,8 @@ public class LinqQueries {
     public double GetAvaragePages() {
         return booksCollection.Where(b => b.PageCount > 0).Average(b => b.PageCount);
     }
+
+    public IEnumerable<IGrouping<int, Book>> GroupBooksSinceYear(int year) {
+        return booksCollection.Where(b => b.PublishedDate.Year > year).GroupBy(b => b.PublishedDate.Year);
+    }
 }
