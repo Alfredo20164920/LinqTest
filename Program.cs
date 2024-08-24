@@ -20,14 +20,35 @@
 // System.Console.WriteLine(queries.TotalPagesWithRange(0, 500));
 // System.Console.WriteLine(queries.GetTitleOfBooksBeforeADate(2005));
 // System.Console.WriteLine(queries.GetAvarageTitleCharacters());
-System.Console.WriteLine(queries.GetAvaragePages());
+// System.Console.WriteLine(queries.GetAvaragePages())
+// PrinGroup(queries.GroupBooksSinceYear(2000));
+// PrintDictionary(queries.GetDictionary(), 'P');}
+printValues(queries.JoinChallenge(2005, 500));
 
-// void printValues (IEnumerable<Book> BookList) {
+void printValues (IEnumerable<Book> BookList) {
+        Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
+        foreach(var item in BookList) {
+            Console.WriteLine(item.ToString());
+        }
+    }
+
+// void PrintDictionary(ILookup<char, Book> bookList, char letter) {
+//     Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
+//             foreach(var item in bookList[letter]) {
+//             Console.WriteLine(item.ToString());
+//         }
+// }
+
+// void PrinGroup(IEnumerable<IGrouping<int, Book>> books) {
+//     foreach(var group in books) {
+//         Console.WriteLine("");
+//         Console.WriteLine($"Group: {group.Key}");
 //         Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");
-//         foreach(var item in BookList) {
+//         foreach(var item in group) {
 //             Console.WriteLine(item.ToString());
 //         }
 //     }
+// }
 
 // void printValue (Book book) {
 //     Console.WriteLine("{0, -60}, {1, 7}, {2, 11}\n  ", "Title", "# Pages", "Published Date");

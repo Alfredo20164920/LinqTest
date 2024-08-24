@@ -101,4 +101,19 @@ public class LinqQueries {
     public double GetAvaragePages() {
         return booksCollection.Where(b => b.PageCount > 0).Average(b => b.PageCount);
     }
+
+    public IEnumerable<IGrouping<int, Book>> GroupBooksSinceYear(int year) {
+        return booksCollection.Where(b => b.PublishedDate.Year > year).GroupBy(b => b.PublishedDate.Year);
+    }
+
+    public ILookup<char, Book> GetDictionary() {
+        return booksCollection.ToLookup(b => b.Title![0], b => b );
+    }
+
+    public IEnumerable<Book> JoinChallenge(int year, int pages) {
+        var booksAfterYear = booksCollection.Where(b => b.PublishedDate.Year > year);
+        var booksWithMoreNPages = booksCollection.Where(b => b.PageCount > pages);
+
+        return booksAfterYear.Join(booksWithMoreNPages, b => b.Title, p => p.Title, (b, p) => b);
+    }
 }
